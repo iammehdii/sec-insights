@@ -18,7 +18,6 @@ class Filing(BaseModel):
     filed_as_of_date: datetime.datetime
     date_as_of_change: datetime.datetime
 
-
 def filing_exists(cik: str, filing_type: str, output_dir: str) -> bool:
     """Checks if a filing exists for a given cik and filing type."""
     data_dir = Path(output_dir) / "sec-edgar-filings"
@@ -48,6 +47,7 @@ def parse_quarter_from_full_submission_txt(full_submission_txt_file_path: Path) 
                 f"Could not find Document Fiscal Period Focus in file {full_submission_txt_file_path}"
             )
 
+# it is useful when we want to show them the highlited section
 
 def get_line_with_substring_in_file(file_path: Path, substring: str) -> str:
     """Returns the first line in a file that contains a given substring."""
